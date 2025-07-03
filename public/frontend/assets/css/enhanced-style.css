@@ -1,0 +1,338 @@
+/*
+===============================
+Enhanced Simple & Elegant Styles
+تحسينات بسيطة وأنيقة
+===============================
+*/
+
+/* تحسين الخطوط والألوان */
+body {
+    line-height: 1.6;
+    color: #2c3e50;
+}
+
+/* تحسين البطاقات */
+.card,
+.single-product,
+.single-info {
+    transition: all 0.3s ease;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.card:hover,
+.single-product:hover,
+.single-info:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+}
+
+/* تحسين الأزرار */
+.btn {
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.btn:hover {
+    transform: translateY(-1px);
+}
+
+/* تحسين النماذج */
+.form-control {
+    border-radius: 6px;
+    border: 1px solid #e0e6ed;
+    padding: 12px 16px;
+    transition: all 0.3s ease;
+}
+
+.form-control:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+}
+
+/* تحسين الهيدر */
+.header {
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.header .topbar {
+    background: #2c3e50;
+}
+
+/* تحسين التنقل */
+.navbar-nav .nav-item a {
+    font-weight: 500;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.navbar-nav .nav-item a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: #007bff;
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.navbar-nav .nav-item:hover a::after,
+.navbar-nav .nav-item a.active::after {
+    width: 80%;
+}
+
+/* تحسين الفوتر */
+.footer {
+    background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+}
+
+.footer .single-footer h3 {
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.footer .single-footer h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 2px;
+    background: #007bff;
+}
+
+/* تحسين البريدكرامب */
+.breadcrumbs {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border-bottom: 1px solid #dee2e6;
+}
+
+/* تحسين صفحة التواصل */
+.contact-us .single-info {
+    background: #fff;
+    border: 1px solid #e0e6ed;
+    padding: 30px;
+    margin-bottom: 30px;
+}
+
+.contact-us .single-info i {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+    color: white;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+/* تحسين فريق العمل */
+.team .single-team {
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.team .single-team:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 25px rgba(0,0,0,0.15);
+}
+
+.team .single-team .image img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.team .single-team .content {
+    padding: 25px;
+}
+
+.team .single-team .content h3 {
+    color: #2c3e50;
+    margin-bottom: 5px;
+}
+
+.team .single-team .content h5 {
+    color: #007bff;
+    font-weight: 400;
+    margin-bottom: 15px;
+}
+
+.team .single-team .social li a {
+    width: 35px;
+    height: 35px;
+    background: #f8f9fa;
+    color: #6c757d;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.team .single-team .social li a:hover {
+    background: #007bff;
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* تحسين المنتجات */
+.single-product .product-image {
+    overflow: hidden;
+    border-radius: 8px 8px 0 0;
+}
+
+.single-product .product-image img {
+    transition: all 0.3s ease;
+}
+
+.single-product:hover .product-image img {
+    transform: scale(1.05);
+}
+
+.single-product .product-info {
+    padding: 20px;
+}
+
+.single-product .product-info .title a {
+    color: #2c3e50;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.single-product .product-info .title a:hover {
+    color: #007bff;
+}
+
+.single-product .product-info .price {
+    color: #007bff;
+    font-weight: 700;
+    font-size: 18px;
+}
+
+/* تحسين الرسائل */
+.alert {
+    border-radius: 8px;
+    border: none;
+    padding: 15px 20px;
+}
+
+.alert-success {
+    background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);
+    color: #155724;
+}
+
+.alert-danger {
+    background: linear-gradient(135deg, #f8d7da 0%, #f5c6cb 100%);
+    color: #721c24;
+}
+
+/* تحسين الاستجابة */
+@media (max-width: 768px) {
+    .contact-us .single-info {
+        padding: 20px;
+        margin-bottom: 20px;
+    }
+    
+    .team .single-team .image img {
+        height: 200px;
+    }
+    
+    .team .single-team .content {
+        padding: 20px;
+    }
+}
+
+/* تحسين التمرير */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #007bff;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #0056b3;
+}
+
+/* تحسين التحميل */
+.preloader {
+    background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+}
+
+/* تحسين الشعار والروابط الاجتماعية */
+.header .nav-social ul li a {
+    width: 35px;
+    height: 35px;
+    background: #f8f9fa;
+    color: #6c757d;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.header .nav-social ul li a:hover {
+    background: #007bff;
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* تحسينات عامة */
+.section-title h2 {
+    color: #2c3e50;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.section-title h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 60px;
+    height: 3px;
+    background: #007bff;
+    transform: translateX(-50%);
+}
+
+.section-title.align-left h2::after {
+    left: 0;
+    transform: none;
+}
+
+.section-title.align-right h2::after {
+    right: 0;
+    left: auto;
+    transform: none;
+}
+
+/* تأثيرات التحميل */
+.fade-in {
+    animation: fadeIn 0.6s ease-in;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* تحسين النص */
+.lead {
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: #6c757d;
+    line-height: 1.6;
+} 
