@@ -7,15 +7,7 @@
     <div class="account-login section">
         <div class="container">
             <div class="row">
-                <div class="col-lg-6 offset-lg-3 col-md-10 offset-md-1 col-12">
-                    <div class="register-form">
-                        <div class="title">
-                            <h3>{{ __('تسجيل الدخول') }}</h3>
-                            <p>{{ __('يمكنك تسجيل الدخول باستخدام بريدك الإلكتروني وكلمة المرور.') }}</p>
-                        </div>
-                        <form class="row" method="post" action="{{route('login')}}">
-                            @csrf
-                            @if (session('success'))
+                        @if (session('success'))
                                 <div class="alert alert-success alert-dismissible fade show" role="alert">
                                     {{ session('success') }}
                                     <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
@@ -28,47 +20,52 @@
                                 <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
                             </div>
                             @endif
-
-                            <div class="col-12">
-                                <div class="form-group">
-                                    <label for="email">{{ __('البريد الإلكتروني') }}</label>
-                                    <input name="email" class="form-control @error('email') is-invalid @enderror" 
-                                           type="email" id="email" value="{{ old('email') }}" required>
-                                    @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                    @enderror
+                <div class="col-lg-6 offset-lg-3 col-md-10 offset-md-1 col-12">
+                    <form class="card login-form" method="post" action="{{route('login')}}">
+                        @csrf
+                        <div class="card-body">
+                            <div class="title">
+                                <h3>Login Now</h3>
+                                <p>You can login using your social media account or email address.</p>
+                            </div>
+                            <div class="social-login">
+                                <div class="row">
+                                    <div class="col-lg-4 col-md-4 col-12"><a class="btn facebook-btn"
+                                            href="javascript:void(0)"><i class="lni lni-facebook-filled"></i> Facebook
+                                            login</a></div>
+                                    <div class="col-lg-4 col-md-4 col-12"><a class="btn twitter-btn"
+                                            href="javascript:void(0)"><i class="lni lni-twitter-original"></i> Twitter
+                                            login</a></div>
+                                    <div class="col-lg-4 col-md-4 col-12"><a class="btn google-btn"
+                                            href="{{route('auth.socialite.redirect', 'google')}}"><i class="lni lni-google"></i> Google login</a>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="col-12">
-                                <div class="form-group">
-                                    <label for="password">{{ __('كلمة المرور') }}</label>
-                                    <input name="password" class="form-control @error('password') is-invalid @enderror" 
-                                           type="password" id="password" required>
-                                    @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                    @enderror
+                            <div class="alt-option">
+                                <span>Or</span>
+                            </div>
+                            <div class="form-group input-group">
+                                <label for="reg-fn">Email</label>
+                                <input class="form-control" type="email" id="reg-email" name="email" required>
+                            </div>
+                            <div class="form-group input-group">
+                                <label for="reg-fn">Password</label>
+                                <input class="form-control" type="password" id="reg-pass" name="password" required>
+                            </div>
+                            <div class="d-flex flex-wrap justify-content-between bottom-content">
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input width-auto" id="exampleCheck1" name="remember">
+                                    <label class="form-check-label">Remember me</label>
                                 </div>
+                               
                             </div>
-                            <div class="col-12">
-                                <div class="form-check form-group">
-                                    <input class="form-check-input width-auto" type="checkbox" value="" id="rememberMe">
-                                    <label class="form-check-label" for="rememberMe">{{ __('تذكرني') }}</label>
-                                </div>
+                            <div class="button">
+                                <button class="btn" type="submit">Login</button>
                             </div>
-                            <div class="col-12">
-                                <div class="button">
-                                    <button class="btn" type="submit">{{ __('تسجيل الدخول') }}</button>
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <p class="outer-link">{{ __('ليس لديك حساب؟') }} <a href="{{route('register')}}">{{ __('إنشاء حساب جديد') }}</a></p>
-                            </div>
-                        </form>
-                    </div>
+                            <p class="outer-link">Don't have an account? <a href="{{route('register')}}">Register here </a>
+                            </p>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>

@@ -5,26 +5,21 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Support\Str;
 
-class Slider extends Model
+class Service extends Model
 {
     use HasFactory;
     
     protected $fillable = [
-        'title',
-        'subtitle',
+        'name',
         'description',
-        'price',
-        'button_text',
-        'button_link',
-        'background_image',
+        'icon',
         'status',
         'sort_order'
     ];
 
     /**
-     * Scope: Get only active sliders
+     * Scope: Get only active services
      */
     public function scopeActive(Builder $query)
     {
@@ -40,33 +35,6 @@ class Slider extends Model
     }
 
     /**
-     * Accessor: Get formatted background image URL
-     */
-
-
-    /**
-     * Accessor: Get formatted button link
-     */
-    public function getButtonLinkUrlAttribute()
-    {
-        if (!$this->button_link) {
-            return route('products.index');
-        }
-        
-        // If it's already a full URL, return as is
-        if (Str::startsWith($this->button_link, ['http', 'https', '/'])) {
-            return $this->button_link;
-        }
-        
-        // Otherwise, assume it's a route name
-        try {
-            return route($this->button_link);
-        } catch (\Exception $e) {
-            return route('products.index');
-        }
-    }
-
-    /**
      * Mutator: Auto-generate sort order if not provided
      */
     public function setSortOrderAttribute($value)
@@ -77,4 +45,4 @@ class Slider extends Model
             $this->attributes['sort_order'] = $value;
         }
     }
-}
+} 

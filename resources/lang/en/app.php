@@ -16,6 +16,7 @@ return [
     'account' => 'Account',
     'my_account' => 'My Account',
     'profile' => 'Profile',
+    'view_product' => 'View Product',
 
     // Categories & Header
     'all_categories' => 'All Categories',
@@ -151,7 +152,7 @@ return [
     'reviews' => 'Review(s)',
     
     // Currency
-    'currency' => '$',
+    'currency' => 'SAR',
     
     // Contact Us
     'contact_us' => 'Contact Us',
@@ -188,4 +189,18 @@ return [
     'our_team' => 'Our Team',
     'meet_our_professional_team' => 'Meet our professional and dedicated team members',
     'all_rights_reserved' => 'All rights reserved',
+    
+    // Product related
+    'add_to_cart' => 'Add to Cart',
+    'quantity' => 'Quantity',
+    'off' => 'OFF',
+    'offer_ends' => 'Offer Ends',
+    'special_offer' => 'Special Offer',
+    
+    // Special Offers
+    'special_offers' => 'Special Offers',
+    'limited_time_offers' => 'Don\'t miss out on our limited-time special offers and exclusive deals',
+    'coming_soon' => 'Coming Soon',
+    'no_offers_available' => 'Special Offers Coming Soon',
+    'check_back_later' => 'Stay tuned for amazing deals and special offers on our products',
 ]; 

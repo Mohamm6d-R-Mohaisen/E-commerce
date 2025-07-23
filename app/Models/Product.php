@@ -157,6 +157,17 @@ class Product extends Model
     }
 
     /**
+     * Relationship: Product has one active special offer
+     */
+    public function special_offer()
+    {
+        return $this->hasOne(SpecialOffer::class, 'product_id', 'id')
+            ->where('status', 'active')
+            ->where('start_date', '<=', now())
+            ->where('end_date', '>=', now());
+    }
+
+    /**
      * Relationship: Product has many special offers
      */
     public function specialOffers()

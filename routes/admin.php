@@ -14,6 +14,7 @@ use App\Http\Controllers\Admin\BlogController;
 use App\Http\Controllers\Admin\AboutController;
 use App\Http\Controllers\Admin\TeamController;
 use App\Http\Controllers\Admin\SettingController;
+use App\Http\Controllers\Admin\ServiceController;
 
 Route::prefix('admin')->name('admin.')->group(function () {
     Route::get('login', [LoginController::class, 'showLoginForm'])->name('show-login');
@@ -33,6 +34,7 @@ Route::group([
     Route::resource('banners', BannerController::class);
     Route::resource('brands', BrandController::class);
     Route::resource('special-offers', SpecialOfferController::class);
+    Route::resource('services', ServiceController::class);
     
     Route::controller(OrderController::class)->prefix('orders')->name('orders.')->group(function () {
         Route::get('export', 'export')->name('export');

@@ -55,13 +55,21 @@ class HomeController extends Controller
             ->get();
 
         // Get active special offers
-        $specialOffers = SpecialOffer::where('status', 'active')
-            ->where('start_date', '<=', now())
-            ->where('end_date', '>=', now())
-            ->orderBy('sort_order', 'asc')
+        $specialOffers = SpecialOffer::with('product.category')
+            ->where('status', 'active')
             ->orderBy('created_at', 'desc')
-            ->limit(3)
             ->get();
+
+        // Debug
+        Log::info('Special Offers Count: ' . $specialOffers->count());
+
+        // Filter active offers in PHP
+        $specialOffers = $specialOffers->filter(function($offer) {
+            return $offer->product 
+                && $offer->product->status === 'active'
+                && $offer->start_date <= now()
+                && $offer->end_date >= now();
+        });
 
         // Get active brands
         $brands = Brand::where('status', 'active')

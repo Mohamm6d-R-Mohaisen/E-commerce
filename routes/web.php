@@ -8,7 +8,7 @@ use App\Http\Controllers\frontend\HomeController;
 use App\Http\Controllers\frontend\CartController;
 use App\Http\Controllers\frontend\OrderController;
 use App\Http\Controllers\frontend\PaymentGetWay;
-
+use App\Http\Controllers\frontend\Auth\SocialiteController;
 /*
 |--------------------------------------------------------------------------
 | Frontend Web Routes
@@ -95,4 +95,6 @@ Route::group([
     });
     
 });
+Route::get('auth/{provider}/redirect', [SocialiteController::class, 'redirect'])->name('auth.socialite.redirect');
+Route::get('auth/{provider}/callback', [SocialiteController::class, 'callback'])->name('auth.socialite.callback');
 

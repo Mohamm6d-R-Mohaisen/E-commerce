@@ -26,7 +26,7 @@
 
                             <div class="form-group input-group">
                                 <label for="code">Verification Code</label>
-                                <input type="text" name="code" id="code"
+                                <input type="text" name="otp_code" id="code"
                                        class="form-control text-center"
                                        placeholder="Enter 6-digit code"
                                        maxlength="6"

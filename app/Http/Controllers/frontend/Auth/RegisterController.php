@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\frontend\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Jobs\SendOTP;
 use App\Mail\VerificationCodeMail;
 use App\Models\User;
 use Carbon\Carbon;
@@ -44,10 +45,11 @@ class RegisterController extends Controller
 
         // Store user ID in session for OTP verification
         Session::put('otp_user_id', $user->id);
+        
 
-        // Send OTP email
-        Mail::to($user->email)->send(new VerificationCodeMail($user));
-
+        // // Send OTP email
+        // Mail::to($user->email)->send(new VerificationCodeMail($user));
+        SendOTP::dispatch($user);
         return redirect()->route('show.verify-otp')
             ->with('success', __('تم إرسال رمز التحقق إلى بريدك الإلكتروني.'));
     }

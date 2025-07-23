@@ -16,6 +16,7 @@ return [
     'account' => 'الحساب',
     'my_account' => 'حسابي',
     'profile' => 'الملف الشخصي',
+    'view_product' => 'عرض المنتج',
     
     // Categories & Header
     'all_categories' => 'جميع الفئات',
@@ -26,7 +27,7 @@ return [
     // Shopping & Cart
     'cart' => 'عربة التسوق',
     'shopping_cart' => 'عربة التسوق',
-    'add_to_cart' => 'إضافة إلى السلة',
+    'add_to_cart' => 'أضف إلى السلة',
     'remove_from_cart' => 'إزالة من السلة',
     'update_cart' => 'تحديث السلة',
     'clear_cart' => 'إفراغ السلة',
@@ -67,7 +68,7 @@ return [
     'tax' => 'الضريبة',
     'free' => 'مجاني',
     'included' => 'مشمول',
-    'currency' => 'ر.س',
+    'currency' => 'د.ك',
 
     // General Actions
     'save' => 'حفظ',
@@ -226,4 +227,19 @@ return [
     'our_team' => 'فريقنا',
     'meet_our_professional_team' => 'تعرف على فريقنا المحترف والمتفاني',
     'all_rights_reserved' => 'جميع الحقوق محفوظة',
+    
+    // Product related
+    'currency' => 'د.ك',
+    'add_to_cart' => 'أضف إلى السلة',
+    'quantity' => 'الكمية',
+    'off' => 'خصم',
+    'offer_ends' => 'ينتهي العرض في',
+    'special_offer' => 'عرض خاص',
+    
+    // Special Offers
+    'special_offers' => 'عروض خاصة',
+    'limited_time_offers' => 'عروض محدودة الوقت وصفقات حصرية',
+    'coming_soon' => 'قريباً',
+    'no_offers_available' => 'لا توجد عروض متاحة حالياً',
+    'check_back_later' => 'تابعنا للحصول على أحدث العروض والخصومات على منتجاتنا',
 ];

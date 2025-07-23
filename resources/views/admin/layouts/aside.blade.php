@@ -173,22 +173,40 @@
 	                        <span class="nav-link-text">{{ __('About Us') }}</span>
 	                    </a>
 	                </li>
-	                <li class="nav-item {{ request()->routeIs('admin.team.*') ? 'active' : '' }}">
-	                    <a class="nav-link" href="{{ route('admin.team.index') }}">
-	                        <span class="nav-icon-wrap">
-	                            <span class="svg-icon">
-	                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-users" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-	                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-	                                    <circle cx="9" cy="7" r="4" />
-	                                    <path d="M3 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
-	                                    <circle cx="16" cy="11" r="3" />
-	                                    <path d="M16 21v-1a4 4 0 0 0 -4 -4h-1" />
-	                                </svg>
-	                            </span>
-	                        </span>
-	                        <span class="nav-link-text">{{ __('Team') }}</span>
-	                    </a>
-	                </li>
+	                                <li class="nav-item {{ request()->routeIs('admin.team.*') ? 'active' : '' }}">
+                    <a class="nav-link" href="{{ route('admin.team.index') }}">
+                        <span class="nav-icon-wrap">
+                            <span class="svg-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-users" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                    <circle cx="9" cy="7" r="4" />
+                                    <path d="M3 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+                                    <circle cx="16" cy="11" r="3" />
+                                    <path d="M16 21v-1a4 4 0 0 0 -4 -4h-1" />
+                                </svg>
+                            </span>
+                        </span>
+                        <span class="nav-link-text">{{ __('Team') }}</span>
+                    </a>
+                </li>
+                <li class="nav-item {{ request()->routeIs('admin.services.*') ? 'active' : '' }}">
+                    <a class="nav-link" href="{{ route('admin.services.index') }}">
+                        <span class="nav-icon-wrap">
+                            <span class="svg-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-tools" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                    <path d="M3 21h4l13 -13a1.5 1.5 0 0 0 -4 -4l-13 13v4" />
+                                    <line x1="14.5" y1="5.5" x2="18.5" y2="9.5" />
+                                    <polyline points="12,8 7,3 3,7 8,12" />
+                                    <line x1="7" y1="8" x2="5.5" y2="9.5" />
+                                    <polyline points="16,12 21,17 17,21 12,16" />
+                                    <line x1="16" y1="17" x2="14.5" y2="18.5" />
+                                </svg>
+                            </span>
+                        </span>
+                        <span class="nav-link-text">{{ __('Services') }}</span>
+                    </a>
+                </li>
 	            </ul>
 	        </div>
 	        

@@ -65,8 +65,8 @@ return [
     |
     */
 
-    'timezone' => 'UTC',
-
+    'timezone' => 'Asia/Gaza',
+    'currency' => 'USD',
     /*
     |--------------------------------------------------------------------------
     | Application Locale Configuration

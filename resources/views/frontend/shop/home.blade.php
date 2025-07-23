@@ -1,63 +1,38 @@
 @extends('frontend.layout')
-
+@push('style')
+<link rel="stylesheet" href="{{ asset('frontend/assets/css/style.css') }}" />
+@endpush
 @section('content')
-    <!-- Start Hero Area -->
-    <section class="hero-area">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="slider-head">
-                        <!-- Start Hero Slider -->
-                        <div class="hero-slider">
-                            @forelse($sliders as $slider)
-                            <!-- Start Single Slider -->
-                            <div class="single-slider"
-                                 @if($slider->background_image) 
-                                     style="background-image: url('{{ asset($slider->background_image) }}');"
-                                 @else 
-                                     style="background-image: url('https://via.placeholder.com/1200x500');"
-                                 @endif>
-                                <div class="content">
-                                    <h2>
-                                        @if($slider->subtitle)
-                                        <span>{{ $slider->subtitle }}</span>
-                                        @endif
-                                        {{ $slider->title }}
-                                    </h2>
-                                    @if($slider->description)
-                                    <p>{{ $slider->description }}</p>
-                                    @endif
-                                    @if($slider->button_text && $slider->button_url)
-                                    <div class="button">
-                                        <a href="{{ $slider->button_url }}" class="btn">{{ $slider->button_text }}</a>
-                                    </div>
-                                    @endif
-                                </div>
-                            </div>
-                            <!-- End Single Slider -->
-                            @empty
-                            <!-- Default Slider if no sliders found -->
-                            <div class="single-slider"
-                                 style="background-image: url('https://via.placeholder.com/1200x500');">
-                                <div class="content">
-                                    <h2><span>Welcome to</span>
-                                        Our Store
-                                    </h2>
-                                    <p>Discover amazing products at great prices</p>
-                                    <div class="button">
-                                        <a href="{{ route('products.index') }}" class="btn">Shop Now</a>
-                                    </div>
-                                </div>
-                            </div>
-                            @endforelse
-                        </div>
-                        <!-- End Hero Slider -->
-                    </div>
+    <!-- Banner area start here -->
+    <section class="banner-section-two paralax__animation">
+     
+      <div class="container">
+        @foreach($sliders as $slider)
+        <div class="row g-0 align-items-center">
+          <div class="col-lg-6 content-column">
+            <div class="inner-column">
+              <div class="content-box">
+                
+                <h3 class="title wow fadeInUp" data-wow-delay="200ms" data-wow-duration="1500ms" style="width: 90%;">{{$slider->title}}</h3>
+                <p class="text wow fadeInUp" data-wow-delay="500ms" data-wow-duration="1500ms">{{$slider->subtitle}} </p>
+                <div class="btn-wrp">
+                  <a class="btn-two-rounded wow fadeInLeft" data-wow-delay="500ms" data-wow-duration="1500ms" href="{{route('about')}}" 
+                  style="  background-color: cornflowerblue;
+"> Get started <i class="fa-regular fa-angle-right"></i></a>
                 </div>
+              </div>
             </div>
+          </div>
+          <div class="col-lg-6 image-column">
+            <figure class="image">
+              <img class=" wow " src="{{asset($slider->image)}}" alt="Image">
+            </figure>
+          </div>
         </div>
+        @endforeach
+      </div>
     </section>
-    <!-- End Hero Area -->
+    <!-- Banner area end here -->
 
     <!-- Start Featured Categories Area -->
     <section class="featured-categories section">
@@ -71,44 +46,27 @@
                 </div>
             </div>
             <div class="row">
-                @forelse($categories as $category)
-                <div class="col-lg-4 col-md-6 col-12">
+             
+                <div class="col-lg-4 col-md-6 col-12">  
+                     @foreach($categories as $category)
                     <!-- Start Single Category -->
-                    <div class="single-category">
-                        <h3 class="heading">{{ $category->name }}</h3>
-                        <ul>
-                            @if($category->description)
-                            <li>{{ Str::limit($category->description, 50) }}</li>
-                            @endif
-                            <li><span class="text-muted">{{ $category->products_count }} Products</span></li>
-                            <li><a href="{{ route('products.index', ['category' => $category->id]) }}">View All Products</a></li>
-                        </ul>
-                        <div class="images">
-                            @if($category->image)
-                            <img src="{{ asset($category->image) }}" alt="{{ $category->name }}">
-                            @else
-                            <img src="https://via.placeholder.com/180x180" alt="{{ $category->name }}">
-                            @endif
-                        </div>
-                    </div>
+                    <div class="card mb-3" >
+	<div class="row g-0" >
+		<div class="col-md-4">
+		<img class="img-fluid rounded-start" src="{{ asset($category->image) }}" alt="{{ $category->name }}">
+		</div>
+		<div class="col-md-8">
+		<div class="card-body">
+			<h5 class="card-title">{{ $category->name }}</h5>
+			<p class="card-text">{{ $category->description }}</p>
+		</div>
+		</div>
+	</div>
+</div>
                     <!-- End Single Category -->
-                </div>
-                @empty
-                <!-- Default categories if none found -->
-                <div class="col-lg-4 col-md-6 col-12">
-                    <div class="single-category">
-                        <h3 class="heading">All Products</h3>
-                        <ul>
-                            <li>Browse our collection</li>
-                            <li>Great deals available</li>
-                            <li><a href="{{ route('products.index') }}">View All Products</a></li>
-                        </ul>
-                        <div class="images">
-                            <img src="https://via.placeholder.com/180x180" alt="Products">
-                        </div>
-                    </div>
-                </div>
-                @endforelse
+                    @endforeach
+               
+               
             </div>
         </div>
     </section>
@@ -145,48 +103,60 @@
             <div class="row">
                 <div class="col-12">
                     <div class="section-title">
-                        <h2>Special Offers</h2>
-                        <p>Don't miss out on our limited-time special offers and exclusive deals.</p>
+                        <h2>{{ __('app.special_offers') }}</h2>
+                        <p>{{ __('app.limited_time_offers') }}</p>
                     </div>
                 </div>
             </div>
             <div class="row justify-content-center">
                 @forelse($specialOffers as $offer)
-                <div class="col-lg-6 col-md-8 col-12 mb-4">
-                    <div class="offer-content">
-                        <div class="image">
-                            @if($offer->image)
-                            <img src="{{ asset($offer->image) }}" alt="{{ $offer->title }}">
-                            @else
-                            <img src="https://via.placeholder.com/510x300" alt="{{ $offer->title }}">
-                            @endif
-                            <span class="sale-tag">-{{ $offer->discount_percentage }}%</span>
-                        </div>
-                        <div class="text">
-                            <h2><a href="{{ $offer->button_url ?? route('products.index') }}">{{ $offer->title }}</a></h2>
-                            @if($offer->description)
-                            <p>{{ $offer->description }}</p>
-                            @endif
-                            @if($offer->button_text && $offer->button_url)
-                            <div class="button">
-                                <a href="{{ $offer->button_url }}" class="btn">{{ $offer->button_text }}</a>
+                    <div class="col-lg-6 col-md-8 col-12 mb-4">
+                        <div class="offer-content">
+                            <div class="image">
+                                @if($offer->product->image)
+                                <img src="{{ asset('uploads/store/products/' . $offer->product->image) }}" alt="{{ $offer->product->name }}">
+                                @else
+                                <img src="https://via.placeholder.com/510x300" alt="{{ $offer->product->name }}">
+                                @endif
                             </div>
-                            @endif
+                            <div class="text">
+                                <span class="category">{{ optional($offer->product->category)->name }}</span>
+                                <h2>
+                                    <a href="{{ route('product.show', $offer->product->id) }}">{{ $offer->product->name }}</a>
+                                </h2>
+                                <div class="price">
+                                    <span class="old-price">{{ number_format($offer->product->price, 2) }} {{ __('app.currency') }}</span>
+                                    <span class="new-price">
+                                        {{ number_format($offer->product->price * 0.8, 2) }} 
+                                        {{ __('app.currency') }}
+                                    </span>
+                                </div>
+                                @if($offer->product->description)
+                                <p>{{ Str::limit($offer->product->description, 100) }}</p>
+                                @endif
+                                <div class="button">
+                                    <a href="{{ route('product.show', $offer->product->id) }}" class="btn">
+                                        <i class="lni lni-eye"></i> {{ __('app.view_product') }}
+                                    </a>
+                                </div>
+                                <div class="offer-timer small text-muted mt-2">
+                                    {{ __('app.offer_ends') }}: {{ $offer->end_date->format('Y-m-d') }}
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
                 @empty
                 <div class="col-lg-6 col-md-8 col-12">
                     <div class="offer-content">
                         <div class="image">
                             <img src="https://via.placeholder.com/510x300" alt="Special Offer">
-                            <span class="sale-tag">Coming Soon</span>
+                            <span class="sale-tag">{{ __('app.coming_soon') }}</span>
                         </div>
                         <div class="text">
-                            <h2><a href="{{ route('products.index') }}">Special Offers Coming Soon</a></h2>
-                            <p>Stay tuned for amazing deals and special offers on our products.</p>
+                            <h2><a href="{{ route('products.index') }}">{{ __('app.no_offers_available') }}</a></h2>
+                            <p>{{ __('app.check_back_later') }}</p>
                             <div class="button">
-                                <a href="{{ route('products.index') }}" class="btn">View Products</a>
+                                <a href="{{ route('products.index') }}" class="btn">{{ __('app.view_all_products') }}</a>
                             </div>
                         </div>
                     </div>
